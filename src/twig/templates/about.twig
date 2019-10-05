@@ -1,0 +1,18 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}
+
+		<!-- ================== Block Main Top ================== -->
+		{% include 'blocks/block-main-top.twig' %}
+    
+        <div class="container">
+            <h1 class="text-primary">About Us</h1>
+            <p class="usercard">
+              <span>{{email}}</span>
+            </p>
+        </div>
+
+ 		<!-- ================== Block Main Bottom ================== -->
+		{% include 'blocks/block-main-bottom.twig' %}
+
+{% endblock %}

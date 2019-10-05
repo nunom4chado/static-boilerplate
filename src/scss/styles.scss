@@ -1,0 +1,37 @@
+// --------------------------------------------------------------------------
+// Bootstrap Overrides here
+// --------------------------------------------------------------------------
+@import "modules/overrides";
+
+// --------------------------------------------------------------------------
+// Insert Bootstrap files
+// --------------------------------------------------------------------------
+
+// Theres are 2 options: Include all files or include only needed files.
+// The second option is recommended but you can start with all files and later select the modules you need.
+
+// Option A: Include all of Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+// Option B: Include parts of Bootstrap
+// Be aware there are some requirements and dependencies across components
+
+// Required
+//@import "node_modules/bootstrap/scss/functions";
+//@import "node_modules/bootstrap/scss/variables";
+//@import "node_modules/bootstrap/scss/mixins";
+
+// Optional
+//@import "node_modules/bootstrap/scss/reboot";
+//@import "node_modules/bootstrap/scss/type";
+//@import "node_modules/bootstrap/scss/images";
+//@import "node_modules/bootstrap/scss/code";
+//@import "node_modules/bootstrap/scss/grid";
+
+
+// --------------------------------------------------------------------------
+// Project Specific Imports
+// --------------------------------------------------------------------------
+@import "modules/global";
+@import "modules/usercard";

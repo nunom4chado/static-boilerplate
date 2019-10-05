@@ -1,0 +1,1 @@
+{"version":3,"sources":["entry.js"],"names":["a","multiply","x","console","log"],"mappings":";;AAAA,IAAMA,CAAC,GAAG,MAAV;;AAEA,IAAMC,QAAQ,GAAG,SAAXA,QAAW,CAAAC,CAAC;AAAA,SAAIA,CAAC,GAAG,CAAR;AAAA,CAAlB;;AACAC,OAAO,CAACC,GAAR,CAAYH,QAAQ,CAAC,EAAD,CAApB","file":"bundle.js","sourcesContent":["const a = \"main\";\n\nconst multiply = x => x * 2;\nconsole.log(multiply(10));"]}
