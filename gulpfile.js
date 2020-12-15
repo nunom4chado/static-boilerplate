@@ -94,10 +94,9 @@ function watch() {
   gulp.watch("src/scss/**/*.scss", style);
   gulp.watch("dist/*.html").on("change", browserSync.reload);
   gulp.watch("src/js/**/*.js").on("change", bundlejs);
-  gulp.watch(
-    ["src/twig/templates/**/*.twig", "src/twig/data/*.twig.json"],
-    compileTwig
-  );
+  gulp
+    .watch(["src/twig/templates/**/*.twig", "src/twig/data/*.twig.json"])
+    .on("change", compileTwig);
 }
 exports.style = style;
 exports.bundlejs = bundlejs;
