@@ -1,7 +1,9 @@
 # static-boilerplate
+
 An easy boilerplate to get you started on creating static html files.
 
 ## Whats included
+
 - Bootstrap 4
 - Browser-sync
 - Gulp 4
@@ -14,6 +16,7 @@ An easy boilerplate to get you started on creating static html files.
 - Gulp Beautify to format html
 
 ## Getting Started
+
 1. Clone or Download this repo
-2. Run ```npm install```
-3. Run ```gulp watch```to start browser-sync and watch for changes
+2. Run `npm install`
+3. Run `npm start`to start browser-sync and watch for changes
