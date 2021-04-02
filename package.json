@@ -4,6 +4,7 @@
   "description": "Boilerplate for static front-end with Bootstrap 4 sass, Gulp 4, Autoprefixer, Babel, Twig, Browser-sync and more.",
   "main": "gulpfile.js",
   "scripts": {
+    "start": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/nunom4chado/static-boilerplate#readme",
   "dependencies": {
-    "bootstrap": "^4.5.3"
+    "bootstrap": "^4.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

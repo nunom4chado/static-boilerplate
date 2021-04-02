@@ -5,7 +5,7 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const autoprefixer = require("autoprefixer");
 const sourcemaps = require("gulp-sourcemaps");
-//const cssnano = require('cssnano');  // use only if css minification is needed
+const cssnano = require("cssnano"); // use only if css minification is needed
 const postcss = require("gulp-postcss");
 const babel = require("gulp-babel");
 const concat = require("gulp-concat");
@@ -23,7 +23,7 @@ const browserSync = require("browser-sync").create();
 function compileTwig() {
   return (
     gulp
-      .src(["./src/twig/templates/*.twig"])
+      .src(["./src/twig/templates/pages/*.twig"])
       // Stay live and reload on error
       .pipe(
         plumber({
@@ -61,7 +61,7 @@ function style() {
     .src("src/scss/**/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(sourcemaps.init())
-    .pipe(postcss([autoprefixer() /*cssnano()*/])) // cssnano disabled. Uncomment this and the require on top to minify css
+    .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/css"))
     .pipe(browserSync.stream());
@@ -84,19 +84,23 @@ function bundlejs() {
 // --------------------------------------------------------------------------
 // Watch files for modification and Reload Browser
 // --------------------------------------------------------------------------
+const watchOptions = { ignoreInitial: false, usePolling: true };
 function watch() {
   browserSync.init({
     server: {
       baseDir: "./dist",
       index: "/index.html",
+      files: ["/**/*"],
     },
   });
-  gulp.watch("src/scss/**/*.scss", style);
-  gulp.watch("dist/*.html").on("change", browserSync.reload);
-  gulp.watch("src/js/**/*.js").on("change", bundlejs);
-  gulp
-    .watch(["src/twig/templates/**/*.twig", "src/twig/data/*.twig.json"])
-    .on("change", compileTwig);
+  gulp.watch("src/scss/**/*.scss", watchOptions, style);
+  gulp.watch("src/js/**/*.js", watchOptions, bundlejs);
+  gulp.watch(
+    ["src/twig/templates/**/*.twig", "src/twig/data/*.twig.json"],
+    watchOptions,
+    compileTwig
+  );
+  gulp.watch("dist/**/*").on("change", browserSync.reload);
 }
 exports.style = style;
 exports.bundlejs = bundlejs;
